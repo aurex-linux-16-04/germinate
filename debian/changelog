@@ -1,3 +1,9 @@
+germinate (2.25-0aurex1) xential; urgency=medium
+
+  * Added aurex-multiple-dists+archive-exceptions.patch
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 06 May 2016 16:45:25 +0200
+
 germinate (2.25) unstable; urgency=medium
 
   * Cope with malformed Built-Using fields, since we only started checking
