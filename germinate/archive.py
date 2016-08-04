@@ -256,9 +256,9 @@ class TagFile(Archive):
                             tag_file.close()
 
                     try:
-                    sources = self._open_tag_files(
-                        self._source_mirrors, dirname, "Sources", dist,
-                        component, "source/Sources")
+                        sources = self._open_tag_files(
+                            self._source_mirrors, dirname, "Sources", dist,
+                            component, "source/Sources")
                     except IOError:
                         # can live without these
                         _progress("Missing Source Packages file for %s "

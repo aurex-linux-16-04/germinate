@@ -1,6 +1,6 @@
-diff -uNar germinate-2.25/germinate/archive.py germinate-2.25.mod/germinate/archive.py
+diff -uNr germinate-2.25/germinate/archive.py germinate-mod/germinate/archive.py
 --- germinate-2.25/germinate/archive.py	2016-04-07 15:28:52.000000000 +0200
-+++ germinate-2.25.mod/germinate/archive.py	2016-05-06 15:54:50.020034471 +0200
++++ germinate-mod/germinate/archive.py	2016-08-04 13:48:09.609242494 +0200
 @@ -97,7 +97,7 @@
      """Fetch package lists from a Debian-format archive as apt tag files."""
  
@@ -63,10 +63,13 @@ diff -uNar germinate-2.25/germinate/archive.py germinate-2.25.mod/germinate/arch
                          finally:
                              tag_file.close()
  
+-                    sources = self._open_tag_files(
+-                        self._source_mirrors, dirname, "Sources", dist,
+-                        component, "source/Sources")
 +                    try:
-                     sources = self._open_tag_files(
-                         self._source_mirrors, dirname, "Sources", dist,
-                         component, "source/Sources")
++                        sources = self._open_tag_files(
++                            self._source_mirrors, dirname, "Sources", dist,
++                            component, "source/Sources")
 +                    except IOError:
 +                        # can live without these
 +                        _progress("Missing Source Packages file for %s "
@@ -85,9 +88,9 @@ diff -uNar germinate-2.25/germinate/archive.py germinate-2.25.mod/germinate/arch
                          except IOError:
                              # can live without these
                              _progress("Missing installer Packages file for %s "
-diff -uNar germinate-2.25/germinate/scripts/germinate_update_metapackage.py germinate-2.25.mod/germinate/scripts/germinate_update_metapackage.py
+diff -uNr germinate-2.25/germinate/scripts/germinate_update_metapackage.py germinate-mod/germinate/scripts/germinate_update_metapackage.py
 --- germinate-2.25/germinate/scripts/germinate_update_metapackage.py	2016-04-07 15:28:52.000000000 +0200
-+++ germinate-2.25.mod/germinate/scripts/germinate_update_metapackage.py	2016-05-06 15:54:50.020034471 +0200
++++ germinate-mod/germinate/scripts/germinate_update_metapackage.py	2016-08-04 13:45:05.549972210 +0200
 @@ -166,6 +166,11 @@
          dists = config.get(dist, 'dists').split()
      else:
