@@ -1,4 +1,4 @@
-germinate (2.25-0aurex1) xential; urgency=medium
+germinate (2.25-0aurex1) xenial; urgency=medium
 
   * Added aurex-multiple-dists+archive-exceptions.patch
 
